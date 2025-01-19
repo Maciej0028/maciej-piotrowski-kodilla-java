@@ -33,19 +33,22 @@ public class ShapeCollectorTest {
         collector.addFigure(circle);
         //Then
         Assertions.assertEquals(2 , collector.size());
+        Assertions.assertEquals(square, collector.getFigure(0));
+        Assertions.assertEquals(circle, collector.getFigure(1));
     }
     @Test //2
     void RemoveFigureTest() {
         //Given
         ShapeCollector collector = new ShapeCollector();
         Shape square = new Square(5);
-        Shape circle = new Triangle(5, 5);
+        Shape triangle = new Triangle(5, 5);
         //When
         collector.addFigure(square);
-        collector.addFigure(circle);
+        collector.addFigure(triangle);
         collector.removeFigure(square);
         //Then
         Assertions.assertEquals(1 , collector.size());
+        Assertions.assertEquals(triangle, collector.getFigure(0));
     }
     @Test //3
     void GetFigureTest() {
@@ -62,6 +65,7 @@ public class ShapeCollectorTest {
         collector.addFigure(square2);
         collector.getFigure(2);
         //Then
+        Assertions.assertEquals(4 , collector.size());
         Assertions.assertEquals(circle, collector.getFigure(1));
     }
     @Test //4
