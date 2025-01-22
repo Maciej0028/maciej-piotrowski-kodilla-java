@@ -29,7 +29,7 @@ public class BookDirectoryTestSuite {
     @BeforeEach
     void setUp() {
         libraryDatabaseMock = mock(LibraryDatabase.class);
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        bookLibrary = new BookLibrary(libraryDatabaseMock);
         LibraryUser libraryUser = new LibraryUser("Adam", "Nowak", "123456");
     }
 
@@ -104,9 +104,9 @@ public class BookDirectoryTestSuite {
         books.add(book);
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(books);
         //When
-        List<Book> result1 = bookLibrary.listBooksInHandsOf(libraryUser);
+        List<Book> result = bookLibrary.listBooksInHandsOf(libraryUser);
         //Then
-        assertEquals(1, result1.size());
+        assertEquals(1, result.size());
     }
     @Test
     void testListBooksInHandsOfUserWith5books() {
@@ -114,8 +114,8 @@ public class BookDirectoryTestSuite {
         List<Book> books5 = generateListOfBooks(5);
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser)).thenReturn(books5);
         //When
-        List<Book> result1 = bookLibrary.listBooksInHandsOf(libraryUser);
+        List<Book> result = bookLibrary.listBooksInHandsOf(libraryUser);
         //Then
-        assertEquals(1, result1.size());
+        assertEquals(5, result.size());
     }
 }
