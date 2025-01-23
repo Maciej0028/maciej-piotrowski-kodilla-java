@@ -76,7 +76,6 @@ public class BookDirectoryTestSuite {
         // Given
         // When
         List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");
-
         // Then
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
@@ -89,7 +88,7 @@ public class BookDirectoryTestSuite {
         //When
         List<Book> result = bookLibrary.listBooksInHandsOf(libraryUser);
         //Then
-        assertTrue(result.isEmpty());
+        assertEquals(0, result.size());
     }
     @Test
     void testListBooksInHandsOfUserWith1books() {
