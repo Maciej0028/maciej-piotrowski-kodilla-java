@@ -36,7 +36,6 @@ public class BookDirectoryTestSuite {
     @Test
     void testListBooksWithConditionReturnList() {
         //Given
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOfBooks = new ArrayList<>();
         Book book1 = new Book("Secrets of Alamo", "John Smith", 2008);                   // [5]
         Book book2 = new Book("Secretaries and Directors", "Dilbert Michigan", 2012);    // [6]
@@ -56,7 +55,6 @@ public class BookDirectoryTestSuite {
     @Test
     void testListBooksWithConditionMoreThan20() {
         //Given
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0Books = new ArrayList<>();
         List<Book> resultListOf15Books = generateListOfBooks(15);
         List<Book> resultListOf40Books = generateListOfBooks(40);
@@ -74,17 +72,14 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    void testListBooksWithConditionFragmentShorterThan3() {                          // [1]
+    void testListBooksWithConditionFragmentShorterThan3() {
         // Given
-        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);            // [2]
-        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);               // [3]
-
         // When
-        List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");       // [4]
+        List<Book> theListOfBooks10 = bookLibrary.listBooksWithCondition("An");
 
         // Then
-        assertEquals(0, theListOfBooks10.size());                                     // [5]
-        verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());    // [6]
+        assertEquals(0, theListOfBooks10.size());
+        verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
 
     @Test
@@ -94,7 +89,7 @@ public class BookDirectoryTestSuite {
         //When
         List<Book> result = bookLibrary.listBooksInHandsOf(libraryUser);
         //Then
-        assertEquals(0, result.size());
+        assertTrue(result.isEmpty());
     }
     @Test
     void testListBooksInHandsOfUserWith1books() {
