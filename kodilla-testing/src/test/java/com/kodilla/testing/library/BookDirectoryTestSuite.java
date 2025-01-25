@@ -30,7 +30,7 @@ public class BookDirectoryTestSuite {
     void setUp() {
         libraryDatabaseMock = mock(LibraryDatabase.class);
         bookLibrary = new BookLibrary(libraryDatabaseMock);
-        LibraryUser libraryUser = new LibraryUser("Adam", "Nowak", "123456");
+        libraryUser = new LibraryUser("Adam", "Nowak", "123456");
     }
 
     @Test
