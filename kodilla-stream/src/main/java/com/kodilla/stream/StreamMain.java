@@ -52,7 +52,7 @@ public class StreamMain {
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
 
-        System.out.println("");
+        System.out.println("\n Stream tests");
 
         People.getList().stream()
                 .map(String::toUpperCase)
@@ -81,7 +81,7 @@ public class StreamMain {
 //        theResultMapOfBooks.entrySet().stream()
 //                .map(entry -> entry.getKey() + ": " + entry.getValue())
 //                .forEach(System.out::println);
-        System.out.println("");
+        System.out.println("\n Module 7.3");
 
         Forum forum = new Forum();
 
