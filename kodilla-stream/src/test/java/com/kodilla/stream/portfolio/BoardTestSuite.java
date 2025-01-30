@@ -97,7 +97,9 @@ public class BoardTestSuite {
     }
     @Test
     void testAddTaskListFindLongProgress() {
+        //Given
         Board project = prepareTestData();
+        //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
         long longTasks = project.getTaskLists().stream()
@@ -111,7 +113,9 @@ public class BoardTestSuite {
     }
     @Test
     void testAddTaskListFindOutdatedTasks() {
+        //given
         Board project = prepareTestData();
+        //when
         List<TaskList> undoneTasks = new ArrayList<>();
         undoneTasks.add(new TaskList("To do"));
         undoneTasks.add(new TaskList("In progress"));
@@ -126,7 +130,9 @@ public class BoardTestSuite {
     }
     @Test
     void testAddTaskListAverageWorkingOnTask() {
+        //Given
         Board project = prepareTestData();
+        //When
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
         var averageTimeToProcess = project.getTaskLists().stream()
@@ -134,7 +140,7 @@ public class BoardTestSuite {
                 .flatMap(tl -> tl.getTasks().stream())
                 .mapToLong(t -> ChronoUnit.DAYS.between(t.getCreated(), LocalDate.now()))
                 .average().orElse(0);
-
+        //Then
         assertEquals(10.0, averageTimeToProcess);
     }
 }
