@@ -7,3 +7,8 @@ include 'kodilla-good-patterns'
 include 'kodilla-spring-intro'
 include 'kodilla-spring-web'
 include 'kodilla-spring'
+include 'kodilla-testing:patterns'
+findProject(':kodilla-testing:patterns')?.name = 'patterns'
+include 'patterns'
+include 'kodilla-patterns'
+
