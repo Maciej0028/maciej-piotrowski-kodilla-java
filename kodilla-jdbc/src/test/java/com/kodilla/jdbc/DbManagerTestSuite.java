@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class DbManagerTestSuite {
@@ -57,8 +56,8 @@ class DbManagerTestSuite {
         //Then
         int counter = 0;
         while (rs.next()) {
-            System.out.println(rs.getString("FIRSTNAME") + ", " +
-                    rs.getString("LASTNAME") + ", " +
+            System.out.println(rs.getString("FIRSTNAME") + " , " +
+                    rs.getString("LASTNAME") + " , " +
                     rs.getString("SUMMARY"));
             counter++;
         }
