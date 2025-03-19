@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'com.mysql', name: 'mysql-connector-j', version: '9.2.0'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '5.15.2'
+}
+
+test {
+    useJUnitPlatform()
+}

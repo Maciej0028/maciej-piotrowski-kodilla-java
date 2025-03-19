@@ -19,11 +19,9 @@ public class Checkers {
     public String getPlayerOne() {
         return playerOne;
     }
-
     public String getPlayerTwo() {
         return playerTwo;
     }
-
     public static class CheckersBuilder {                                // [6]
 
         private Board board = new Board();                                // [7]
@@ -78,6 +76,8 @@ public class Checkers {
                 throw new IllegalStateException("There are no figures of both colors on the board!");// [51]
             }                                                                                   // [52]
             return new Checkers(board, playerOne, playerTwo);                                   // [53]
-        };                                                                                     // [54]
+        }
+
+        ;                                                                                     // [54]
     }                                                                                         // [55]
 }
