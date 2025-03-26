@@ -22,7 +22,6 @@ public class InvoiceDaoTestSuite {
     @Autowired
     private ItemDao itemDao;
 
-    @Transactional
     @Test
     void testInvoiceDaoSave() {
         //Given

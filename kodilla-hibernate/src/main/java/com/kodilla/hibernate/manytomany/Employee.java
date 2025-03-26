@@ -5,6 +5,10 @@ import org.antlr.v4.runtime.misc.NotNull;
 
 import java.util.*;
 
+@NamedQuery(
+        name = "Employee.retrieveEmployeeByLastname",
+        query = "FROM Employee WHERE lastname = :LASTNAME"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
